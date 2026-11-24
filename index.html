@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f5f2">
+<meta name="description" content="نگرانی‌ات را به یک موجود خیالی و دوست‌داشتنی تبدیل کن.">
+<title>همراه نگرانی من | به نگرانی‌ات شکل بده</title>
+<meta name="app-version" content="8.0">
+<script type="module" src="https://cdn.jsdelivr.net/npm/iconsax@0.1.1/+esm"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+:root{
+ --ink:#343641;--muted:#777986;--sage:#7e9e8d;--sage-dark:#557565;
+ --sage-soft:#eaf1ec;--lav:#eeeaf3;--lav-deep:#a89bb8;--peach:#f5e9e1;
+ --paper:#fbfaf8;--line:#e9e6e5;--white:#fff;
+ --shadow:0 28px 90px rgba(63,62,77,.08);--radius:30px;
+}
+*{box-sizing:border-box;font-family:'Vazirmatn',Tahoma,sans-serif}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);background:
+ radial-gradient(ellipse at 7% 2%,rgba(220,235,225,.82),transparent 34%),
+ radial-gradient(ellipse at 96% 10%,rgba(234,228,243,.82),transparent 31%),
+ radial-gradient(ellipse at 50% 100%,rgba(247,235,226,.55),transparent 38%),#f8f7f4}
+button,textarea{font:inherit}
+iconsax-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;line-height:1;vertical-align:middle}
+.brandmark iconsax-icon{color:#719382}
+.meta-chip iconsax-icon{margin-left:5px;color:#789987}
+.privacy-note>iconsax-icon{color:#789987;margin-top:2px}
+.side-note .symbol iconsax-icon{color:#8ca99a}
+button{cursor:pointer}
+.shell{max-width:1120px;margin:auto;padding:24px 22px 54px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:22px}
+.brand{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:800;color:#626575}
+.brandmark{width:40px;height:40px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#dcebe1,#e8e2f0);color:#719382;font-size:23px;box-shadow:0 7px 20px #78988722}
+.pill{padding:9px 15px;border:1px solid #e8e3e9;background:#ffffffb8;border-radius:99px;color:#777684;font-size:11px;white-space:nowrap}
+.panel{overflow:hidden;border:1px solid #ffffffd9;border-radius:34px;background:#ffffffd4;backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+.hidden{display:none!important}
+.hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:585px;position:relative;background:linear-gradient(120deg,#edf4ef 0%,#f0edf5 61%,#f8eee8 100%)}
+.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(34px,6vw,72px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#809287;font-size:12px;font-weight:700}
+.eyebrow:before{content:"";width:23px;height:1px;background:#9eb5a7}
+.hero h1{margin:17px 0 13px;color:#414452;font-size:clamp(35px,5.2vw,57px);line-height:1.5;letter-spacing:-1.2px}
+.hero h1 em{font-style:normal;color:#789b89}
+.lead{max-width:485px;margin:0;color:#777987;font-size:15px;line-height:2.35}
+.btn{min-height:50px;padding:12px 23px;border:0;border-radius:100px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:disabled{opacity:.42;cursor:not-allowed}
+.primary{color:#fff;background:linear-gradient(135deg,#759887,#9eb7a8);box-shadow:0 10px 25px #789b8935}
+.primary:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 15px 30px #789b8945}
+.secondary{color:#706b7c;background:#f0edf5;border:1px solid #e6e0ed}
+.ghost{color:#747482;background:#fff;border:1px solid var(--line)}
+.start{margin-top:27px;min-width:180px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}
+.meta-chip{padding:8px 12px;border:1px solid #ffffffd6;border-radius:99px;background:#ffffff8c;color:#777987;font-size:11px}
+.hero-art{position:relative;min-height:500px;display:grid;place-items:center;overflow:hidden}
+.glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 32% 25%,#fff 0,#e1eee6 30%,#bed5c8 73%,#a9c5b7 100%);box-shadow:inset -20px -25px 50px #72917f20,inset 15px 14px 35px #ffffffd9,0 40px 85px #7896872e;animation:float 7s ease-in-out infinite}
+.hero-creature{position:relative;z-index:1;width:min(360px,82%);height:auto;filter:drop-shadow(0 24px 18px #6d8a7a20);animation:float 6s ease-in-out infinite}
+.float-dot{position:absolute;border:1px solid #fff;background:#ffffff66;border-radius:50%;animation:float 5s ease-in-out infinite}
+.dot-a{width:23px;height:23px;top:19%;left:17%}.dot-b{width:13px;height:13px;right:14%;bottom:24%;animation-delay:1s}.dot-c{width:18px;height:18px;top:24%;right:18%;animation-delay:2s}
+.art-caption{position:absolute;bottom:11%;right:12%;z-index:2;padding:10px 15px;border:1px solid #ffffffd9;border-radius:16px;background:#ffffffa8;color:#6f7e76;font-size:11px;backdrop-filter:blur(10px)}
+@keyframes float{50%{transform:translateY(-11px) rotate(1.5deg)}}
+.content{padding:clamp(24px,5vw,54px)}
+.quiz-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:13px;color:#7f808d;font-size:12px;font-weight:600}
+.step-count{color:#688675}
+.progress{height:8px;margin-bottom:34px;border-radius:99px;overflow:hidden;background:#efedf0}
+.progress-bar{height:100%;width:25%;border-radius:99px;background:linear-gradient(90deg,#83a997,#b9acc9);transition:width .3s}
+.q-layout{display:grid;grid-template-columns:minmax(0,1fr) 205px;gap:25px;align-items:start}
+.q-main h2{margin:0 0 8px;font-size:clamp(22px,3vw,29px);line-height:1.8}
+.hint{margin:0 0 22px;color:#858491;font-size:13px;line-height:2.2}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.option{position:relative;min-height:65px;padding:13px 15px;border:1px solid #e9e5ea;border-radius:18px;background:linear-gradient(145deg,#fff,#fbfafb);display:flex;align-items:center;gap:10px;text-align:right;color:#656775;font-size:13px;line-height:1.85;transition:.18s}
+.option:hover{border-color:#c6d8ce;transform:translateY(-2px)}
+.option.active{border-color:#8eae9e;background:linear-gradient(135deg,#edf5ef,#f2eff6);color:#557667;box-shadow:0 0 0 3px #e7f0e9}
+.option:focus-visible,.btn:focus-visible,.field:focus-visible{outline:3px solid #9bb9aa;outline-offset:3px}
+.option .ico{flex:0 0 30px;width:30px;height:30px;border-radius:11px;display:grid;place-items:center;background:#f0edf4;color:#8d829f;font-size:15px}
+.option.active .ico{background:#dcebe1;color:#62816f}
+.option[aria-pressed="true"]:after{content:"✓";margin-right:auto;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#789b8b;color:white;font-size:12px;font-weight:800}
+.options.multi .option{padding-left:44px}
+.options.multi .option:before{content:"";position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;border:1.5px solid #c9cbd0;border-radius:6px;background:#fff}
+.options.multi .option.active:before{content:"✓";display:grid;place-items:center;border-color:#789b8b;background:#789b8b;color:#fff;font-size:12px;font-weight:800}
+.options.multi .option[aria-pressed="true"]:after{display:none}
+.choice-count{display:flex;justify-content:space-between;align-items:center;margin:0 0 10px;color:#7d8790;font-size:11px}
+.choice-count b{color:#658574}
+.field-wrap{margin-top:16px}
+.field-label{display:block;margin:0 0 8px;color:#646978;font-size:12px;font-weight:700}
+.field{width:100%;min-height:105px;padding:15px 17px;border:1px solid #e8e4e9;border-radius:18px;resize:vertical;background:#fff;color:var(--ink);outline:none;font-size:13px;line-height:2.1}
+.field:focus{border-color:#a5c0b3;box-shadow:0 0 0 4px #e8f0eb}
+.field::placeholder{color:#aaa8b1}
+.field-help{margin:7px 2px 0;color:#96939e;font-size:11px;line-height:1.9}
+.conditional{margin-top:15px;padding:16px;border:1px solid #e8e5eb;border-radius:19px;background:linear-gradient(145deg,#fbfafc,#f6f8f5);animation:fadeIn .22s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.counter{display:flex;justify-content:space-between;margin-top:6px;color:#96939e;font-size:10px}
+.side-note{position:sticky;top:18px;padding:18px;border:1px solid #fff;border-radius:23px;background:linear-gradient(155deg,#f0f5f1,#f3eff7);color:#777786;font-size:12px;line-height:2.1}
+.side-note .symbol{font-size:25px;margin-bottom:8px}
+.side-note strong{display:block;margin-bottom:6px;color:#626474;font-size:13px}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:29px}
+.nav .btn{min-width:120px}
+.privacy-note{display:flex;align-items:flex-start;gap:9px;margin-top:18px;padding:12px 14px;border:1px solid #e8eee9;border-radius:16px;background:#f7faf7;color:#7b867f;font-size:10px;line-height:2}
+.result-hero{text-align:center;padding:43px 24px 34px;background:linear-gradient(125deg,#edf4ef,#f0edf5 68%,#f8f0eb)}
+.result-hero h1{margin:10px 0 7px;color:#454654;font-size:clamp(27px,4vw,39px);line-height:1.6}
+.result-hero p{max-width:650px;margin:auto;color:#7d7b88;font-size:13px;line-height:2.2}
+.result-content{padding:clamp(22px,5vw,46px)}
+.summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.summary-card{min-width:0;padding:15px;border:1px solid #ece8ed;border-radius:18px;background:linear-gradient(145deg,#fff,#fcfbfc)}
+.summary-card small{display:block;margin-bottom:6px;color:#9895a1;font-size:10px}
+.summary-card span{color:#626474;font-size:12px;line-height:1.9;overflow-wrap:anywhere}
+.generation-card{margin-top:20px;padding:22px;border:1px solid #e7eae5;border-radius:25px;background:linear-gradient(140deg,#eef4ef,#f2eef6)}
+.generation-card h3{margin:0 0 7px;font-size:18px}
+.generation-card>p{margin:0;color:#858391;font-size:12px;line-height:2.1}
+.service-hint{display:flex;align-items:flex-start;gap:8px;margin-top:12px;padding:11px 13px;border:1px solid #e5ece6;border-radius:15px;background:#f8fbf8;color:#7b897f;font-size:10px;line-height:1.9}
+.service-hint iconsax-icon{margin-top:2px;color:#789987}
+.error-box{line-height:2.1}
+.error-box .btn{font-size:11px}
+.generation-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.generation-actions .btn{flex:1;min-width:190px}
+.loading-box{display:none;margin-top:18px;padding:20px;border:1px solid #e4e9e4;border-radius:20px;background:#ffffffa8;text-align:center}
+.loading-box.show{display:block}
+.spinner{width:36px;height:36px;margin:0 auto 11px;border:3px solid #e5e9e5;border-top-color:#7e9e8d;border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-title{color:#60786b;font-size:13px;font-weight:700}
+.loading-copy{margin-top:5px;color:#8a8995;font-size:11px;line-height:1.9}
+.image-result{display:none;margin-top:18px;padding:12px;border:1px solid #e6e9e5;border-radius:23px;background:#fff}
+.image-result.show{display:block}
+.image-result img{display:block;width:100%;max-height:760px;object-fit:contain;border-radius:16px;background:#f4f2f4}
+.image-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.image-actions .btn{flex:1;min-width:170px}
+.error-box{display:none;margin-top:16px;padding:16px;border:1px solid #eadfda;border-radius:18px;background:#fff8f4;color:#876d63;font-size:12px;line-height:2}
+.error-box.show{display:block}
+.prompt-details{margin-top:18px;border:1px solid #e8e5eb;border-radius:19px;background:#fff;overflow:hidden}
+.prompt-details summary{padding:14px 17px;color:#6f6d7c;font-size:12px;font-weight:700;cursor:pointer}
+.prompt-details textarea{display:block;width:100%;min-height:280px;padding:15px;border:0;border-top:1px solid #eeeaf0;resize:vertical;color:#555767;background:#fcfbfc;font-size:12px;line-height:2;outline:none}
+.foot{text-align:center;margin-top:23px;color:#aaa6ae;font-size:11px;line-height:2}
+.toast{position:fixed;bottom:22px;left:50%;z-index:20;max-width:calc(100vw - 30px);transform:translateX(-50%);padding:12px 20px;border-radius:99px;background:#5d776b;color:#fff;text-align:center;font-size:12px;line-height:1.8;opacity:0;pointer-events:none;transition:.2s;box-shadow:0 10px 30px #2d413733}
+.toast.show{opacity:1}
+@media(max-width:760px){
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-copy{align-items:center;text-align:center;padding:42px 27px 12px}
+ .lead{font-size:14px}
+ .hero-art{min-height:340px}
+ .glow{width:275px;height:275px}
+ .hero-creature{width:285px}
+ .q-layout{grid-template-columns:1fr;gap:20px}
+ .side-note{position:static}
+}
+@media(max-width:520px){
+ .shell{padding:13px 10px 34px}
+ .topbar{margin-bottom:14px}
+ .brand{font-size:12px}
+ .pill{font-size:10px;padding:8px 10px}
+ .panel{border-radius:26px}
+ .hero-copy{padding:34px 20px 10px}
+ .hero h1{font-size:37px}
+ .hero-art{min-height:290px}
+ .glow{width:220px;height:220px}
+ .hero-creature{width:230px}
+ .content{padding:24px 17px}
+ .options{grid-template-columns:1fr}
+ .q-main h2{font-size:23px}
+ .side-note{padding:17px}
+ .summary{grid-template-columns:1fr}
+ .generation-card{padding:19px 15px}
+ .generation-actions .btn,.image-actions .btn{min-width:100%}
+ .nav .btn{min-width:0;flex:1;padding:12px 16px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+<header class="topbar">
+ <div class="brand"><span class="brandmark"><iconsax-icon name="magic-star" type="linear" size="22" color="#719382" aria-hidden="true"></iconsax-icon></span><span>همراه نگرانی من</span></div>
+ <div class="pill">رایگان • بدون ثبت‌نام</div>
+</header>
+
+<section class="panel" id="welcome">
+ <div class="hero">
+  <div class="hero-copy">
+   <div class="eyebrow">یک تجربه‌ی آرام و خلاقانه</div>
+   <h1>به نگرانی‌ات<br><em>شکل بده.</em></h1>
+   <p class="lead">گاهی وقتی به احساساتمان شکل می‌دهیم، می‌توانیم از زاویه‌ای تازه به آن‌ها نگاه کنیم. به چند پرسش کوتاه جواب بده و بگذار نگرانی‌ات به یک موجود خیالی و منحصربه‌فرد تبدیل شود.</p>
+   <button class="btn primary start" id="start">شروع تجربه <iconsax-icon name="arrow-left-01" type="linear" size="18" color="currentColor" aria-hidden="true"></iconsax-icon></button>
+   <div class="hero-meta">
+    <span class="meta-chip"><iconsax-icon name="magic-star" size="15" aria-hidden="true"></iconsax-icon>چهار گام کوتاه</span>
+    <span class="meta-chip"><iconsax-icon name="heart" size="15" aria-hidden="true"></iconsax-icon>بدون قضاوت</span>
+    <span class="meta-chip"><iconsax-icon name="image" size="15" aria-hidden="true"></iconsax-icon>تصویرسازی در همین صفحه</span>
+   </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+   <div class="glow"></div><span class="float-dot dot-a"></span><span class="float-dot dot-b"></span><span class="float-dot dot-c"></span>
+   <svg class="hero-creature" viewBox="0 0 340 340">
+    <defs><radialGradient id="creatureBody" cx="30%" cy="22%" r="80%"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#d7e9df"/><stop offset=".78" stop-color="#b6cec2"/><stop offset="1" stop-color="#a4c0b3"/></radialGradient><filter id="creatureShadow"><feGaussianBlur stdDeviation="5"/></filter></defs>
+    <ellipse cx="171" cy="295" rx="103" ry="14" fill="#789688" opacity=".18" filter="url(#creatureShadow)"/>
+    <path d="M75 245 C43 230 40 190 59 163 C34 128 61 82 105 85 C120 36 177 32 205 73 C252 48 297 80 286 128 C324 151 313 207 278 222 C273 268 226 282 190 264 C154 295 94 283 75 245Z" fill="url(#creatureBody)" stroke="#fff" stroke-width="5"/>
+    <ellipse cx="112" cy="114" rx="19" ry="12" fill="#fff" opacity=".62"/><ellipse cx="248" cy="103" rx="8" ry="6" fill="#fff" opacity=".55"/>
+    <ellipse cx="128" cy="173" rx="20" ry="25" fill="#fff"/><ellipse cx="218" cy="173" rx="20" ry="25" fill="#fff"/>
+    <ellipse cx="130" cy="178" rx="8" ry="13" fill="#607b72"/><ellipse cx="216" cy="178" rx="8" ry="13" fill="#607b72"/>
+    <ellipse cx="91" cy="208" rx="17" ry="8" fill="#d8b9cf" opacity=".65"/><ellipse cx="255" cy="208" rx="17" ry="8" fill="#d8b9cf" opacity=".65"/>
+    <path d="M158 211 Q171 222 185 211" fill="none" stroke="#789889" stroke-width="4" stroke-linecap="round"/>
+    <path d="M165 56 Q158 36 179 26" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/>
+   </svg>
+   <div class="art-caption">یک موجود خیالی، از دل تجربه‌ی تو</div>
+  </div>
+ </div>
+</section>
+
+<section class="panel hidden" id="quiz">
+ <div class="content">
+  <div class="quiz-head"><span>شناخت نگرانی تو</span><span class="step-count" id="stepText">۱ از ۴</span></div>
+  <div class="progress" aria-label="پیشرفت پاسخ‌گویی"><div class="progress-bar" id="bar"></div></div>
+  <div class="q-layout">
+   <div class="q-main">
+    <h2 id="qTitle"></h2>
+    <p class="hint" id="qHint"></p>
+    <div id="answerArea"></div>
+    <div class="nav">
+     <button class="btn secondary" id="back" type="button">بازگشت</button>
+     <button class="btn primary" id="next" type="button" disabled>ادامه <iconsax-icon name="arrow-left-01" size="18" aria-hidden="true"></iconsax-icon></button>
+    </div>
+    <div class="privacy-note"><iconsax-icon name="shield-tick" size="18" aria-hidden="true"></iconsax-icon><span>پاسخ‌ها در این سایت ذخیره نمی‌شوند. برای ساخت تصویر، خلاصه‌ی پاسخ‌ها به یک سرویس بیرونی تصویرسازی فرستاده می‌شود؛ لطفاً نام واقعی یا اطلاعات بسیار حساس ننویس.</span></div>
+   </div>
+   <aside class="side-note"><div class="symbol"><iconsax-icon name="cloud" size="28" aria-hidden="true"></iconsax-icon></div><strong>اینجا جواب درست و غلط نداریم.</strong> هر اندازه که راحتی بنویس. پاسخ‌ها قرار نیست قضاوت شوند؛ فقط به ساختن یک استعاره‌ی تصویری کمک می‌کنند.</aside>
+  </div>
+ </div>
+</section>
+
+<section class="panel hidden" id="result">
+ <div class="result-hero">
+  <div class="eyebrow">وقت جان گرفتن تصویر است</div>
+  <h1>حالا نوبت خلق همراه توست.</h1>
+  <p>پاسخ‌هایت را مرور کن. بعد می‌توانی تصویر را همین‌جا بسازی یا برای دریافت تصویر و داستان کامل، از چت‌جی‌پی‌تی کمک بگیری.</p>
+ </div>
+ <div class="result-content">
+  <div class="summary" id="summary"></div>
+  <div class="generation-card">
+   <h3>تصویر اختصاصی تو</h3>
+   <p>یک موجود تازه بر اساس پاسخ‌هایت ساخته می‌شود. این نسخه از مسیر عمومی و رایگان تصویرسازی استفاده می‌کند؛ بدون ثبت‌نام و کلید دسترسی، اما با محدودیت تعداد درخواست و احتمال شلوغی سرویس.</p>
+   <div class="service-hint"><iconsax-icon name="information" size="16" aria-hidden="true"></iconsax-icon><span>نسخه‌ی رایگان ممکن است روی تصویر نشان کوچک سرویس داشته باشد و برای هر اینترنت بین دو تصویر تازه حدود ۴۵ ثانیه فاصله بگذارد. اگر محدودیت فعال باشد، زمان انتظار را همین‌جا می‌بینی.</span></div>
+   <div class="generation-actions">
+    <button class="btn primary" id="generate">ساخت تصویر در همین صفحه <iconsax-icon name="magic-star" size="18" aria-hidden="true"></iconsax-icon></button>
+    <button class="btn secondary" id="openChat">ساخت تصویر و داستان در چت‌جی‌پی‌تی <iconsax-icon name="export-arrow-02" size="18" aria-hidden="true"></iconsax-icon></button>
+   </div>
+   <div class="loading-box" id="loading" aria-live="polite">
+    <div class="spinner"></div>
+    <div class="loading-title">داریم برای نگرانی‌ات یک شکل تازه پیدا می‌کنیم…</div>
+    <div class="loading-copy">ممکن است کمی زمان ببرد. این صفحه را نبند.</div>
+   </div>
+   <div class="error-box" id="imageError" role="alert">
+    <div id="imageErrorText">ساخت تصویر انجام نشد. می‌توانی کمی بعد دوباره تلاش کنی.</div>
+    <button class="btn secondary" id="retryError" type="button" style="margin-top:12px;min-height:42px">تلاش دوباره</button>
+   </div>
+   <div class="image-result" id="imageResult">
+    <img id="generatedImage" alt="تصویر همراه خیالی نگرانی تو">
+    <div class="image-actions">
+     <button class="btn secondary" id="downloadImage"><iconsax-icon name="import-arrow-01" size="18" aria-hidden="true"></iconsax-icon>ذخیره‌ی تصویر</button>
+     <button class="btn ghost" id="retryImage"><iconsax-icon name="refresh-arrow-02" size="18" aria-hidden="true"></iconsax-icon>ساخت یک تصویر تازه</button>
+    </div>
+   </div>
+  </div>
+  <details class="prompt-details">
+   <summary>دیدن دستور خلاقانه برای چت‌جی‌پی‌تی</summary>
+   <textarea id="chatPrompt" readonly aria-label="دستور خلاقانه"></textarea>
+   <div class="generation-actions" style="padding:0 14px 14px">
+    <button class="btn secondary" id="copyPrompt"><iconsax-icon name="copy" size="18" aria-hidden="true"></iconsax-icon>کپی دستور</button>
+   </div>
+  </details>
+  <div class="privacy-note"><iconsax-icon name="shield-tick" size="18" aria-hidden="true"></iconsax-icon><span>این تجربه برای بیان خلاقانه‌ی احساسات است، نه تشخیص یا درمان. تصویرسازی در همین صفحه از یک سرویس عمومی استفاده می‌کند؛ برای نام و داستان دقیق‌تر می‌توانی مسیر چت‌جی‌پی‌تی را انتخاب کنی.</span></div>
+  <div class="generation-actions"><button class="btn ghost" id="restart"><iconsax-icon name="refresh-arrow-01" size="18" aria-hidden="true"></iconsax-icon>شروع یک تجربه‌ی تازه</button></div>
+ </div>
+</section>
+
+<div class="foot">ساخته‌شده با مهربانی • تو بزرگ‌تر از نگرانی‌هایت هستی. <iconsax-icon name="heart" size="13" aria-hidden="true"></iconsax-icon></div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const answers = {
+ worries: [], worryExtra: '',
+ when: '', whenOther: '',
+ shape: '',
+ strengths: [], strengthExtra: ''
+};
+let step = 0;
+let imageUrl = '';
+let generatedBlob = null;
+let generatedObjectUrl = '';
+let imageController = null;
+let imageTimeout = null;
+let cooldownUntil = 0;
+let cooldownInterval = null;
+
+const worryOptions = [
+ 'نگرانی از آینده و چیزهای نامعلوم',
+ 'ترس از قضاوت دیگران یا ناامید کردنشان',
+ 'ترس از اشتباه کردن یا شکست خوردن',
+ 'نگرانی درباره‌ی رابطه‌ها و از دست دادن آدم‌ها',
+ 'فشار مسئولیت‌ها و توقعات زیاد',
+ 'احساس کافی نبودن یا مقایسه‌ی خودم با دیگران',
+ 'نگرانی درباره‌ی تصمیم‌های مهم',
+ 'نگرانی درباره‌ی سلامت و امنیت خودم یا عزیزانم'
+];
+const whenOptions = [
+ 'هنگام تصمیم‌گیری',
+ 'وقتی تنها هستم',
+ 'پیش از اتفاق‌های مهم',
+ 'در ارتباط با دیگران',
+ 'شب‌ها و پیش از خواب',
+ 'وقتی احساس می‌کنم کنترل ندارم',
+ 'وقتی برنامه‌ها ناگهانی تغییر می‌کنند',
+ 'موقعیت دیگری'
+];
+const shapeOptions = [
+ ['نرم و پشمالو','cloud'],['شفاف و ژله‌ای','drop'],['شبیه ابر یا مه','wind'],
+ ['الهام‌گرفته از طبیعت','tree'],['عجیب و انتزاعی','magic-star'],['ریز و ظریف','feather'],
+ ['سنگین و بزرگ','weight'],['غافلگیرم کن؛ خودت انتخاب کن','magicpen']
+];
+const strengthOptions = [
+ 'مهربانی','پشتکار','کنجکاوی','خلاقیت','صبوری','مسئولیت‌پذیری','استقلال','امیدواری'
+];
+
+function toast(message){
+ $('toast').textContent=message;
+ $('toast').classList.add('show');
+ clearTimeout(toast.timer);
+ toast.timer=setTimeout(()=>$('toast').classList.remove('show'),2800);
+}
+function escapeHtml(value){
+ return String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function addTextarea(parent,{id,label,placeholder,value,onInput,help,rows=3,maxLength=500}){
+ const wrap=document.createElement('div');wrap.className='field-wrap';
+ const l=document.createElement('label');l.className='field-label';l.htmlFor=id;l.textContent=label;wrap.append(l);
+ const t=document.createElement('textarea');t.id=id;t.className='field';t.rows=rows;t.maxLength=maxLength;t.placeholder=placeholder;t.value=value;
+ t.addEventListener('input',e=>{onInput(e.target.value);updateNext()});wrap.append(t);
+ if(help){const h=document.createElement('div');h.className='field-help';h.textContent=help;wrap.append(h)}
+ parent.append(wrap);return t;
+}
+function makeOption(label,icon,active,onClick){
+ const b=document.createElement('button');b.type='button';b.className='option'+(active?' active':'');b.setAttribute('aria-pressed',String(active));
+ const ico=document.createElement('span');ico.className='ico';ico.setAttribute('aria-hidden','true');
+ const glyph=document.createElement('iconsax-icon');glyph.setAttribute('name',icon);glyph.setAttribute('type','linear');glyph.setAttribute('size','18');glyph.setAttribute('color','currentColor');ico.append(glyph);
+ const txt=document.createElement('span');txt.textContent=label;b.append(ico,txt);b.addEventListener('click',onClick);return b;
+}
+function validStep(){
+ if(step===0)return answers.worries.length>0||answers.worryExtra.trim().length>0;
+ if(step===1)return !!answers.when&&(answers.when!=='موقعیت دیگری'||answers.whenOther.trim().length>0);
+ if(step===2)return !!answers.shape;
+ return true;
+}
+function updateNext(){$('next').disabled=!validStep()}
+function render(){
+ const titles=[
+  ['این روزها چه چیزهایی بیشتر از همه نگرانت می‌کنند؟','می‌توانی حداکثر سه مورد انتخاب کنی. اگر چیزی جا مانده، در کادر پایین بنویس.'],
+  ['این نگرانی‌ها بیشتر چه زمانی سراغت می‌آیند؟','نزدیک‌ترین موقعیت را انتخاب کن. اگر گزینه‌ی آخر را بزنی، کادر توضیح باز می‌شود.'],
+  ['اگر نگرانی‌ات یک موجود خیالی بود، چه حال‌وهوایی داشت؟','این فقط یک سرنخ است؛ طراحی نهایی را به خلاقیت هوش مصنوعی می‌سپاریم.'],
+  ['کدام ویژگی خوبت را دوست داری در این موجود هم ببینی؟','می‌توانی حداکثر دو ویژگی انتخاب کنی. این بخش کمک می‌کند تصویر فقط درباره‌ی نگرانی نباشد.']
+ ];
+ $('stepText').textContent=`${['اول','دوم','سوم','چهارم'][step]} از چهار`;
+ $('bar').style.width=((step+1)/4*100)+'%';
+ $('qTitle').textContent=titles[step][0];$('qHint').textContent=titles[step][1];
+ $('back').disabled=step===0;$('back').style.opacity=step===0?'.4':'1';
+ $('next').innerHTML=step===3?'دیدن خلاصه و ساخت تصویر <iconsax-icon name="magic-star" size="18" aria-hidden="true"></iconsax-icon>':'ادامه <iconsax-icon name="arrow-left-01" size="18" aria-hidden="true"></iconsax-icon>';
+ $('back').innerHTML='بازگشت <iconsax-icon name="arrow-right-01" size="18" aria-hidden="true"></iconsax-icon>'; 
+ const area=$('answerArea');area.innerHTML='';
+
+ if(step===0){
+  const count=document.createElement('div');count.className='choice-count';
+  count.innerHTML=`<span>انتخاب‌های تو</span><b>${answers.worries.length} از سه</b>`;area.append(count);
+  const grid=document.createElement('div');grid.className='options multi';
+  worryOptions.forEach((opt,i)=>grid.append(makeOption(opt,['calendar','heart','danger','people','briefcase','chart','task-square','health'][i],answers.worries.includes(opt),()=>{
+   if(answers.worries.includes(opt))answers.worries=answers.worries.filter(x=>x!==opt);
+   else if(answers.worries.length<3)answers.worries.push(opt);
+   else{toast('برای دقیق‌تر ماندن پاسخ، حداکثر سه مورد انتخاب کن.');return}
+   render();
+  })));
+  area.append(grid);
+  addTextarea(area,{id:'worryExtra',label:'اگر دوست داری، کمی بیشتر توضیح بده',placeholder:'مثلاً: بیشتر از این می‌ترسم که نتوانم از پس انتظاراتم بربیایم…',value:answers.worryExtra,onInput:v=>answers.worryExtra=v,help:'این کادر اختیاری است؛ لطفاً بدون نام واقعی یا جزئیات حساس بنویس.',maxLength:200});
+ }else if(step===1){
+  const grid=document.createElement('div');grid.className='options';
+  whenOptions.forEach((opt,i)=>grid.append(makeOption(opt,['edit-2','user','calendar','people','moon','setting-2','repeat-arrow','more-circle'][i],answers.when===opt,()=>{
+   answers.when=opt;if(opt!=='موقعیت دیگری')answers.whenOther='';render();
+  })));
+  area.append(grid);
+  if(answers.when==='موقعیت دیگری'){
+   const box=document.createElement('div');box.className='conditional';
+   addTextarea(box,{id:'whenOther',label:'چه موقعیتی مدنظرت است؟',placeholder:'مثلاً وقتی باید درباره‌ی موضوع مهمی با کسی صحبت کنم…',value:answers.whenOther,onInput:v=>answers.whenOther=v,help:'یک توضیح کوتاه کافی است.',maxLength:140});
+   area.append(box);
+  }
+ }else if(step===2){
+  const grid=document.createElement('div');grid.className='options';
+  shapeOptions.forEach(([opt,icon])=>grid.append(makeOption(opt,icon,answers.shape===opt,()=>{answers.shape=opt;render()})));
+  area.append(grid);
+ }else{
+  const count=document.createElement('div');count.className='choice-count';
+  count.innerHTML=`<span>ویژگی‌های انتخاب‌شده</span><b>${answers.strengths.length} از دو</b>`;area.append(count);
+  const grid=document.createElement('div');grid.className='options multi';
+  strengthOptions.forEach((opt,i)=>grid.append(makeOption(opt,['heart','arrow-up-01','search-normal','magicpen','clock','briefcase','user','sun'][i],answers.strengths.includes(opt),()=>{
+   if(answers.strengths.includes(opt))answers.strengths=answers.strengths.filter(x=>x!==opt);
+   else if(answers.strengths.length<2)answers.strengths.push(opt);
+   else{toast('می‌توانی حداکثر دو ویژگی انتخاب کنی.');return}
+   render();
+  })));
+  area.append(grid);
+  addTextarea(area,{id:'strengthExtra',label:'ویژگی دیگری هم هست؟ (اختیاری)',placeholder:'اگر ویژگی دیگری در خودت می‌بینی، اینجا بنویس…',value:answers.strengthExtra,onInput:v=>answers.strengthExtra=v,help:'اگر چیزی به ذهنت نمی‌رسد، می‌توانی این بخش را خالی بگذاری.',maxLength:100});
+  const skip=document.createElement('button');skip.type='button';skip.className='btn ghost';skip.style.marginTop='12px';skip.textContent='فعلاً نمی‌خواهم ویژگی‌ای انتخاب کنم';skip.addEventListener('click',()=>{answers.strengths=[];answers.strengthExtra='';showResult()});area.append(skip);
+ }
+ updateNext();
+}
+function nextStep(){
+ if(!validStep())return;
+ if(step<3){step++;render();window.scrollTo({top:$('quiz').offsetTop-10,behavior:'smooth'})}
+ else showResult();
+}
+$('start').addEventListener('click',()=>{
+ $('welcome').classList.add('hidden');$('quiz').classList.remove('hidden');step=0;render();
+ window.scrollTo({top:0,behavior:'smooth'});
+});
+$('back').addEventListener('click',()=>{if(step>0){step--;render();window.scrollTo({top:$('quiz').offsetTop-10,behavior:'smooth'})}});
+$('next').addEventListener('click',nextStep);
+
+function answerText(){
+ const worry=answers.worries.length?answers.worries.join('، '):'موردی از فهرست انتخاب نشده است';
+ const when=answers.when==='موقعیت دیگری'?`موقعیت دیگر: ${answers.whenOther}`:answers.when;
+ const shape=answers.shape==='غافلگیرم کن؛ خودت انتخاب کن'?'طراحی آزاد و غافلگیرکننده':answers.shape;
+ const strengths=answers.strengths.length?answers.strengths.join('، '):'ویژگی مشخصی انتخاب نشده است';
+ return {worry,when,shape,strengths};
+}
+function imagePrompt(){
+ const a=answerText();
+ const worryMap={
+  'نگرانی از آینده و چیزهای نامعلوم':'uncertainty about the future and unknown possibilities',
+  'ترس از قضاوت دیگران یا ناامید کردنشان':'fear of being judged or disappointing others',
+  'ترس از اشتباه کردن یا شکست خوردن':'fear of making mistakes or failing',
+  'نگرانی درباره‌ی رابطه‌ها و از دست دادن آدم‌ها':'worry about relationships and losing loved ones',
+  'فشار مسئولیت‌ها و توقعات زیاد':'pressure from responsibilities and expectations',
+  'احساس کافی نبودن یا مقایسه‌ی خودم با دیگران':'feeling not good enough or comparing oneself with others',
+  'نگرانی درباره‌ی تصمیم‌های مهم':'worry about important decisions',
+  'نگرانی درباره‌ی سلامت و امنیت خودم یا عزیزانم':'worry about health and safety of oneself or loved ones'
+ };
+ const whenMap={
+  'هنگام تصمیم‌گیری':'when making decisions','وقتی تنها هستم':'when alone',
+  'پیش از اتفاق‌های مهم':'before important events','در ارتباط با دیگران':'around other people',
+  'شب‌ها و پیش از خواب':'at night before sleep','وقتی احساس می‌کنم کنترل ندارم':'when feeling out of control',
+  'وقتی برنامه‌ها ناگهانی تغییر می‌کنند':'when plans suddenly change'
+ };
+ const shapeMap={
+  'نرم و پشمالو':'soft and fluffy texture','شفاف و ژله‌ای':'translucent jelly-like material',
+  'شبیه ابر یا مه':'cloudlike or misty form','الهام‌گرفته از طبیعت':'organic nature-inspired form',
+  'عجیب و انتزاعی':'strange abstract silhouette','ریز و ظریف':'small delicate form',
+  'سنگین و بزرگ':'large heavy-looking form','غافلگیرم کن؛ خودت انتخاب کن':'invent the most fitting original form'
+ };
+ const strengthMap={
+  'مهربانی':'kindness','پشتکار':'perseverance','کنجکاوی':'curiosity','خلاقیت':'creativity',
+  'صبوری':'patience','مسئولیت‌پذیری':'sense of responsibility','استقلال':'independence','امیدواری':'hopefulness'
+ };
+ const worries=answers.worries.map(x=>worryMap[x]||x).join('; ')||'the personal worry described below';
+ const when=whenMap[answers.when]||answers.whenOther||'in situations described by the user';
+ const shape=shapeMap[answers.shape]||'choose a form that best expresses the emotional metaphor';
+ const strengths=answers.strengths.map(x=>strengthMap[x]||x).join('; ')||'no strength was selected; do not invent one';
+ const free=[answers.worryExtra,answers.whenOther,answers.strengthExtra].filter(Boolean).join(' | ');
+ return `Create one original, highly detailed, soft-dreamy 3D fantasy character that acts as a visual metaphor for a person's worry. The character is for a young adult or adult audience: charming and emotionally expressive, but not childish, scary, evil, or threatening.
+
+The user's free-text notes below are in Persian. Understand their meaning; never render any words or letters in the image.
+Core worry themes: ${worries}.
+When this worry becomes stronger: ${when}.
+User's visual hint (treat only as inspiration, not a strict template): ${shape}.
+A real personal strength the user chose: ${strengths}.
+Additional words from the user (preserve their meaning): ${free || 'No additional detail provided.'}.
+
+Creative direction:
+Invent a distinctive silhouette and a specific visual metaphor that communicates the worry. Do not default to a generic round blob, monster, or mascot. Decide the creature's anatomy, proportions, posture, face, materials, textures, colors, tiny symbolic objects, and surrounding atmosphere based on the answers. The selected strength, if any, should appear as a subtle counterbalance or hopeful detail within the design, not erase the worry. Every major visual detail must have a reason connected to the user's answers. Avoid clichés and avoid repeating a stock character design.
+
+Soft & dreamy editorial fantasy art, refined pastel palette, sophisticated 3D character design, tactile material detail, gentle cinematic lighting, beautiful art direction, clean atmospheric background, single character centered, full body visible, portrait composition, high quality. No text, no lettering, no logo, no watermark, no collage, no extra characters.`;
+}
+function chatPrompt(){
+ const a=answerText();
+ return `می‌خواهم بر اساس نگرانی‌ها و پاسخ‌های من، یک موجود خیالی کاملاً اختصاصی طراحی کنی و تصویر واقعی آن را تولید کنی.
+
+پاسخ‌های من:
+۱. موضوع‌های نگرانی: ${a.worry}
+۲. زمان یا موقعیت پررنگ‌شدن نگرانی: ${a.when}
+۳. سرنخ ظاهری: ${a.shape}
+۴. ویژگی‌های مثبتی که دوست دارم در طراحی بازتاب پیدا کنند: ${a.strengths}
+۵. توضیح‌های تکمیلی من: ${[answers.worryExtra,answers.whenOther,answers.strengthExtra].filter(Boolean).join('؛ ')||'توضیح دیگری ندارم.'}
+
+از این پاسخ‌ها یک استعاره‌ی بصری تازه و غیرکلیشه‌ای بساز. سرنخ ظاهری را فقط الهام بدان و خودت درباره‌ی فرم بدن، رنگ، بافت، چهره، ژست و جزئیات تصمیم بگیر. ویژگی مثبت انتخاب‌شده را به شکل نمادی ظریف در کنار نگرانی نشان بده.
+
+اگر از همین گفت‌وگو یا از شناختی که واقعاً و به‌طور مرتبط از من در دسترس داری، نکته‌ای درباره‌ی علایق، عادت‌ها یا نقاط قوتم می‌دانی، فقط یک یا دو مورد را به‌شکل نمادین وارد طراحی کن. چیزی را حدس نزن یا جعل نکن؛ از اطلاعات حساس و نامرتبط هم استفاده نکن. اگر شناختی در دسترس نیست، فقط از پاسخ‌های من الهام بگیر.
+
+سبک تصویر نرم، رؤیایی، هنری و مناسب جوانان و بزرگسالان باشد؛ دوست‌داشتنی اما نه کودکانه. تصویر را مانند یک اثر سه‌بعدی حرفه‌ای با تمام بدن موجود در کادر، نورپردازی لطیف و پس‌زمینه‌ی خلوت تولید کن. داخل تصویر هیچ نوشته یا لوگویی نباشد.
+
+پس از تولید تصویر، یک نام تازه برای موجود انتخاب کن، معنای جزئیات مهمش را توضیح بده و یک جمله‌ی کوتاه از زبانش بنویس. این تمرین برای بیان خلاقانه‌ی احساسات است، نه تشخیص روان‌شناختی.`;
+}
+function showResult(){
+ const a=answerText();
+ const cards=[
+  ['نگرانی‌ها',a.worry],
+  ['زمان بروز',a.when],
+  ['سرنخ ظاهری',a.shape],
+  ['ویژگی‌های مثبت',a.strengths],
+  ['توضیح‌های تکمیلی',[answers.worryExtra,answers.whenOther,answers.strengthExtra].filter(Boolean).join('؛ ')||'توضیحی اضافه نشده است']
+ ];
+ $('summary').innerHTML=cards.map(([label,value])=>`<div class="summary-card"><small>${escapeHtml(label)}</small><span>${escapeHtml(value)}</span></div>`).join('');
+ $('chatPrompt').value=chatPrompt();
+ $('quiz').classList.add('hidden');$('result').classList.remove('hidden');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function imageEndpoint(){
+ const prompt=imagePrompt();
+ const seed=Math.floor(Math.random()*1000000);
+ // The legacy public endpoint is used intentionally: gen.pollinations.ai now requires auth.
+ return `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=576&height=768&seed=${seed}`;
+}
+function normalGenerateLabel(){
+ $('generate').innerHTML='ساخت تصویر در همین صفحه <iconsax-icon name="magic-star" size="18" aria-hidden="true"></iconsax-icon>';
+}
+function setGenerating(on){
+ $('generate').disabled=on;
+ $('retryError').disabled=on;
+ $('loading').classList.toggle('show',on);
+ if(on){$('imageError').classList.remove('show');$('imageResult').classList.remove('show')}
+}
+function setImageError(message){
+ $('imageErrorText').textContent=message;
+ $('imageError').classList.add('show');
+}
+function startCooldown(seconds){
+ const safeSeconds=Math.max(1,Math.min(300,Number(seconds)||45));
+ cooldownUntil=Date.now()+safeSeconds*1000;
+ clearInterval(cooldownInterval);
+ const tick=()=>{
+  const left=Math.max(0,Math.ceil((cooldownUntil-Date.now())/1000));
+  if(left<=0){
+   clearInterval(cooldownInterval);cooldownInterval=null;
+   $('generate').disabled=false;
+   $('retryError').disabled=false;$('retryError').textContent='تلاش دوباره';
+   normalGenerateLabel();return;
+  }
+  $('generate').disabled=true;$('retryError').disabled=true;
+  $('retryError').textContent=`تلاش دوباره تا ${left} ثانیه‌ی دیگر`;
+  $('generate').textContent=`تلاش دوباره تا ${left} ثانیه‌ی دیگر`;
+ };
+ tick();cooldownInterval=setInterval(tick,1000);
+}
+function retrySecondsFrom(response){
+ const raw=response.headers.get('Retry-After');
+ if(!raw)return 45;
+ const n=Number(raw);
+ if(Number.isFinite(n)&&n>0)return n;
+ const date=Date.parse(raw);
+ return Number.isFinite(date)?Math.max(1,Math.ceil((date-Date.now())/1000)):45;
+}
+function explainImageFailure(status, body, error){
+ const text=String(body||'');
+ if(status===402 && /FREE_LIMIT|free.?limit|rate.?limit/i.test(text)){
+  const seconds=window.lastImageRetryAfter||45;
+  startCooldown(seconds);
+  return `سهمیه‌ی رایگان این سرویس برای اینترنت شما موقتاً استفاده شده است. حدود ${seconds} ثانیه صبر کن؛ دکمه‌ی ساخت تصویر بعد از پایان زمان انتظار دوباره فعال می‌شود.`;
+ }
+ if(status===401){
+  return 'سرویس تصویرسازی درخواست ناشناس را نپذیرفت. ممکن است دسترسی رایگان این مسیر تغییر کرده باشد؛ فعلاً می‌توانی از گزینه‌ی چت‌جی‌پی‌تی استفاده کنی.';
+ }
+ if(status===429){
+  const seconds=window.lastImageRetryAfter||45;
+  startCooldown(seconds);
+  return `درخواست‌ها برای مدت کوتاهی محدود شده‌اند. ${seconds} ثانیه صبر کن و دوباره امتحان کن.`;
+ }
+ if(status>=500){
+  return 'سرور تصویرسازی موقتاً شلوغ یا از دسترس خارج است. چند دقیقه‌ی دیگر دوباره امتحان کن.';
+ }
+ if(error && error.name==='AbortError'){
+  return 'ساخت تصویر بیش از ۹۰ ثانیه طول کشید و متوقف شد. احتمالاً سرویس شلوغ است؛ کمی بعد دوباره امتحان کن.';
+ }
+ if(!navigator.onLine){
+  return 'اتصال اینترنت قطع شده است. بعد از وصل شدن اینترنت دوباره تلاش کن.';
+ }
+ return 'ارتباط با سرویس تصویرسازی برقرار نشد. ممکن است اینترنت، محدودیت مرورگر یا شلوغی سرویس علت آن باشد. دوباره تلاش کن یا مسیر چت‌جی‌پی‌تی را انتخاب کن.';
+}
+async function generateImage(){
+ if(Date.now()<cooldownUntil)return;
+ if(imageController)imageController.abort();
+ if(imageTimeout)clearTimeout(imageTimeout);
+ if(generatedObjectUrl){URL.revokeObjectURL(generatedObjectUrl);generatedObjectUrl=''}
+ generatedBlob=null;
+ const controller=new AbortController();imageController=controller;
+ const url=imageEndpoint();imageUrl=url;
+ $('generatedImage').removeAttribute('src');
+ $('imageError').classList.remove('show');
+ setGenerating(true);
+ imageTimeout=setTimeout(()=>controller.abort(),90000);
+ try{
+  const response=await fetch(url,{method:'GET',mode:'cors',cache:'no-store',signal:controller.signal});
+  if(!response.ok){
+   const body=await response.text().catch(()=> '');
+   window.lastImageRetryAfter=retrySecondsFrom(response);
+   throw Object.assign(new Error('image request failed'),{status:response.status,body});
+  }
+  const contentType=response.headers.get('content-type')||'';
+  if(!contentType.toLowerCase().startsWith('image/')){
+   const body=await response.text().catch(()=> '');
+   throw Object.assign(new Error('response was not an image'),{status:response.status,body});
+  }
+  const blob=await response.blob();
+  if(!blob.size || blob.size<1024)throw new Error('image response was empty');
+  generatedBlob=blob;
+  generatedObjectUrl=URL.createObjectURL(blob);
+  clearTimeout(imageTimeout);
+  imageTimeout=setTimeout(()=>{
+   setGenerating(false);
+   setImageError('تصویر دریافت شد اما بارگذاری آن کامل نشد. دوباره تلاش کن.');
+  },20000);
+  const image=$('generatedImage');
+  image.onload=()=>{
+   clearTimeout(imageTimeout);imageTimeout=null;imageController=null;
+   setGenerating(false);$('imageError').classList.remove('show');
+   $('imageResult').classList.add('show');
+   $('imageResult').scrollIntoView({behavior:'smooth',block:'center'});
+  };
+  image.onerror=()=>{
+   clearTimeout(imageTimeout);imageTimeout=null;imageController=null;
+   setGenerating(false);
+   setImageError('تصویر دریافت شد اما مرورگر نتوانست آن را نمایش دهد. دوباره تلاش کن.');
+  };
+  image.src=generatedObjectUrl;
+ }catch(error){
+  clearTimeout(imageTimeout);imageTimeout=null;imageController=null;
+  setGenerating(false);
+  const message=explainImageFailure(error.status||0,error.body||'',error);
+  setImageError(message);
+  toast('ساخت تصویر کامل نشد. جزئیات را در همین بخش ببین.');
+ }finally{
+  if(imageController===controller && !controller.signal.aborted){
+   // Keep the controller until the image element confirms it has loaded.
+  }
+ }
+}
+$('generate').addEventListener('click',generateImage);
+$('retryImage').addEventListener('click',generateImage);
+$('retryError').addEventListener('click',generateImage);
+$('downloadImage').addEventListener('click',()=>{
+ if(!generatedBlob){toast('تصویری برای ذخیره وجود ندارد.');return;}
+ const objectUrl=URL.createObjectURL(generatedBlob);
+ const link=document.createElement('a');link.href=objectUrl;link.download='hamrah-e-negaraani.png';
+ document.body.append(link);link.click();link.remove();
+ setTimeout(()=>URL.revokeObjectURL(objectUrl),1500);
+});
+async function copyText(text){
+ try{await navigator.clipboard.writeText(text);return true}
+ catch(e){
+  const temp=document.createElement('textarea');temp.value=text;document.body.append(temp);temp.select();
+  let ok=false;try{ok=document.execCommand('copy')}catch(err){}
+  temp.remove();return ok;
+ }
+}
+$('copyPrompt').addEventListener('click',async()=>{
+ const ok=await copyText($('chatPrompt').value);
+ toast(ok?'دستور خلاقانه کپی شد.':'متن دستور را انتخاب کن و کپی کن.');
+});
+$('openChat').addEventListener('click',()=>{
+ const chatWindow=window.open('https://chatgpt.com/','_blank','noopener');
+ copyText($('chatPrompt').value).then(ok=>{
+  toast(ok?'دستور کپی شد؛ آن را در گفت‌وگوی چت‌جی‌پی‌تی بچسبان.':'دستور را از بخش پایین کپی کن و در چت‌جی‌پی‌تی بچسبان.');
+ });
+ if(!chatWindow)toast('مرورگر پنجره‌ی تازه را مسدود کرد؛ از دکمه‌ی کپی دستور استفاده کن.');
+});
+$('restart').addEventListener('click',()=>{
+ answers.worries=[];answers.worryExtra='';answers.when='';answers.whenOther='';
+ answers.shape='';answers.strengths=[];answers.strengthExtra='';
+ step=0;imageUrl='';
+ if(imageController)imageController.abort();
+ if(imageTimeout)clearTimeout(imageTimeout);
+ clearInterval(cooldownInterval);cooldownInterval=null;cooldownUntil=0;
+ if(generatedObjectUrl)URL.revokeObjectURL(generatedObjectUrl);
+ generatedObjectUrl='';generatedBlob=null;imageController=null;imageTimeout=null;
+ $('retryError').disabled=false;$('retryError').textContent='تلاش دوباره';
+ $('generate').disabled=false;normalGenerateLabel();
+ $('result').classList.add('hidden');$('imageResult').classList.remove('show');$('imageError').classList.remove('show');
+ $('welcome').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
